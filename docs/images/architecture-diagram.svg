@@ -1,0 +1,57 @@
+<svg width="680" height="400" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+<title>DP-SGD training step</title>
+<desc>For each example in a minibatch, compute its own gradient and clip its L2 norm to a bound C. Average the clipped per-example gradients, add Gaussian noise scaled to the clip norm and batch size, then update the model weights. A privacy accountant tracks the cumulative epsilon spent over all training steps.</desc>
+<rect width="680" height="400" fill="#ffffff"/>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#73726c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+
+<g>
+<rect x="40" y="40" width="220" height="56" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>
+<text x="150" y="60" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#2C2C2A">Minibatch</text>
+<text x="150" y="78" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">Sampled at rate q</text>
+</g>
+
+<line x1="260" y1="68" x2="298" y2="68" stroke="#73726c" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="300" y="40" width="240" height="56" rx="8" fill="#E6F1FB" stroke="#378ADD" stroke-width="1"/>
+<text x="420" y="60" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#042C53">Per-example gradients</text>
+<text x="420" y="78" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0C447C">One gradient vector per example</text>
+</g>
+
+<line x1="420" y1="96" x2="420" y2="134" stroke="#73726c" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="280" y="136" width="280" height="56" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="1"/>
+<text x="420" y="156" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#412402">Clip each to L2 norm C</text>
+<text x="420" y="174" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#633806">Bounds any one example's influence</text>
+</g>
+
+<line x1="420" y1="192" x2="420" y2="230" stroke="#73726c" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="320" y="232" width="200" height="56" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>
+<text x="420" y="252" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#2C2C2A">Average</text>
+<text x="420" y="270" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">Mean of clipped gradients</text>
+</g>
+
+<line x1="420" y1="288" x2="420" y2="326" stroke="#73726c" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="260" y="328" width="320" height="56" rx="8" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+<text x="420" y="348" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#4A1B0C">Add Gaussian noise N(0, σC/batch)</text>
+<text x="420" y="366" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#712B13">Update weights with the noisy gradient</text>
+</g>
+
+<text x="150" y="156" text-anchor="middle" font-size="12" font-weight="bold" fill="#5F5E5A">Every step:</text>
+<text x="150" y="176" text-anchor="middle" font-size="12" fill="#5F5E5A">accountant</text>
+<text x="150" y="192" text-anchor="middle" font-size="12" fill="#5F5E5A">tracks ε spent</text>
+
+<g>
+<rect x="40" y="232" width="220" height="56" rx="8" fill="#EAF3DE" stroke="#639922" stroke-width="1"/>
+<text x="150" y="252" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#173404">Privacy accountant</text>
+<text x="150" y="270" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#27500A">ε(steps, σ, q, δ)</text>
+</g>
+<path d="M260,260 L300,260 L300,344 L258,344" fill="none" stroke="#73726c" stroke-width="1" stroke-dasharray="4 3"/>
+</svg>

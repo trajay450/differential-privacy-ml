@@ -1,0 +1,82 @@
+{
+  "config": {
+    "dataset": "Breast Cancer Wisconsin (Diagnostic), 569 samples, 30 features",
+    "n_train": 426,
+    "n_test": 143,
+    "epochs": 20,
+    "batch_size": 32,
+    "clip_norm": 1.0,
+    "sampling_rate": 0.07511737089201878,
+    "total_steps": 280,
+    "delta": 0.00023474178403755868,
+    "accountant": "Abadi et al. (2016) Theorem 1 simplified bound (c=1); illustrative, not a numerical RDP accountant",
+    "seeds_per_point": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "true_nonprivate_baseline_accuracy": {
+    "mean": 0.9706293706293707,
+    "std": 0.002797202797202791,
+    "note": "no clipping, no noise -- ordinary logistic regression SGD"
+  },
+  "privacy_utility_tradeoff": [
+    {
+      "noise_multiplier": 0.0,
+      "epsilon": Infinity,
+      "accuracy_mean": 0.9636363636363636,
+      "accuracy_std": 0.005233087254229277
+    },
+    {
+      "noise_multiplier": 0.3,
+      "epsilon": 12.112226296138918,
+      "accuracy_mean": 0.9664335664335664,
+      "accuracy_std": 0.0027972027972027916
+    },
+    {
+      "noise_multiplier": 0.6,
+      "epsilon": 6.056113148069459,
+      "accuracy_mean": 0.9622377622377621,
+      "accuracy_std": 0.003425859780116326
+    },
+    {
+      "noise_multiplier": 1.0,
+      "epsilon": 3.6336678888416754,
+      "accuracy_mean": 0.9622377622377621,
+      "accuracy_std": 0.003425859780116326
+    },
+    {
+      "noise_multiplier": 1.5,
+      "epsilon": 2.4224452592277834,
+      "accuracy_mean": 0.958041958041958,
+      "accuracy_std": 0.007660455349722587
+    },
+    {
+      "noise_multiplier": 2.0,
+      "epsilon": 1.8168339444208377,
+      "accuracy_mean": 0.9566433566433566,
+      "accuracy_std": 0.006851719560232651
+    },
+    {
+      "noise_multiplier": 2.5,
+      "epsilon": 1.45346715553667,
+      "accuracy_mean": 0.9524475524475523,
+      "accuracy_std": 0.008155177475308095
+    },
+    {
+      "noise_multiplier": 3.0,
+      "epsilon": 1.2112226296138917,
+      "accuracy_mean": 0.951048951048951,
+      "accuracy_std": 0.007660455349722587
+    },
+    {
+      "noise_multiplier": 4.0,
+      "epsilon": 0.9084169722104188,
+      "accuracy_mean": 0.946853146853147,
+      "accuracy_std": 0.008391608391608374
+    }
+  ]
+}
